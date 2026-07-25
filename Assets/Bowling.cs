@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -20,9 +21,24 @@ public class Bowling : MonoBehaviour
     {
         if (Keyboard.current.spaceKey.wasPressedThisFrame)
             Shootball();
+
+        if (Keyboard.current.rightArrowKey.isPressed)
+            Moveright();
+        if (Keyboard.current.leftArrowKey.isPressed)
+            Moveleft();
+
+
     }
     private void Shootball()
     {
         rb.AddForce(Vector3.forward * forcepower, ForceMode.Impulse);
+    }
+    private void Moveright()
+    {
+        transform.position += new Vector3(1f, 0f, 0f) * Time.deltaTime;
+    }
+    private void Moveleft()
+    {
+        transform.position += new Vector3(-1f, 0f, 0f) * Time.deltaTime;
     }
 }
