@@ -19,7 +19,7 @@ public class Bowling : MonoBehaviour
     void Update()
     {
         if (Keyboard.current.spaceKey.wasPressedThisFrame)
-            Shootball;
+            Shootball();
     }
     private void Shootball()
     {
